@@ -1,4 +1,4 @@
-(function(){
+/* (function(){
 	var slides = [
 		{ id: 0, src: '../img/slide-01.jpg', title: '명화1' },
 		{ id: 1, src: '../img/slide-02.jpg', title: '명화2' },
@@ -59,4 +59,4 @@
 		$($slides[idx].clone()).appendTo($slideWrap).stop().animate({"opacity": 1}, 500, slideInit);
 	}
 	init();
-})();
+})(); */

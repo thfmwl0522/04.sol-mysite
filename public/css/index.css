@@ -6,36 +6,31 @@
 /* font-family: 'Open Sans', sans-serif; */
 
 /** 공통사항 *********************/
-html, body {font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;}
+html, body {font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: #fff;}
 
 
 /** .header *********************/
 .header-wrapper {width:100%; height: 100vh; position: relative; color: #fff;} 
-.header-wrapper .slide-wrap {position: absolute; width: 100%; height: 100vh; overflow: hidden;}
-.header-wrapper .banner-wrap .slide {position: absolute; width: 100%; height: 100%; top: 0; left: 0; background-size: cover; background-repeat: no-repeat; }
-.header-wrapper .cont-wrap {position: absolute; width: 100%; height: 100%; top: 0; left: 0; }
-.header-wrapper .htop-wrap {display: flex; justify-content: space-between;align-items: center; font-family: 'Open Sans', sans-serif; font-size: 12px; font-weight: 600; border-bottom: 1px solid #f1f1f1;}
-.header-wrapper .htop-lt {display:flex; align-items: center; padding: 0 8px 0 35px;}
-.header-wrapper .htop-lt .htop-navi {display:flex; align-items: center; margin: 8px;}
-.header-wrapper .htop-rt {display:flex; align-items: center; padding: 8px;} 
-.header-wrapper .htop-lt .icon-text {padding: 0 25px 0 10px;} 
-.header-wrapper .htop-rt .text {padding: 0 20px 0 10px;} 
+.header-wrapper .slide-wrapper {position: absolute; width: 100%; height: 100vh; overflow: hidden;}
+.header-wrapper .slide-wrapper .slide {position: absolute; width: 100%; height: 100%; top: 0; left: 0; background-size: cover; background-repeat: no-repeat; }
+.header-wrapper .cont-wrap {position: absolute; width: 100%; height: 100%; top: 0; left: 0;}
+.header-wrapper .htop-wrap {display: flex; justify-content: space-between; align-items: center; font-family: 'Open Sans', sans-serif; font-size: 12px; font-weight: 400; border-bottom: 1px solid rgba(254, 226, 226, 0.3); padding: 10px 35px;}
+.header-wrapper .htop-lt {display:flex; align-items:flex-start; /* margin-right: 50px; */}
+.header-wrapper .htop-rt {display:flex; align-items: center; } 
+.header-wrapper .htop-lt .icon {font-size:15px; margin-right: 12px; margin-left: 42px;} 
+.header-wrapper .htop-lt .icon:nth-child(1) {margin-left: 0;} 
+.header-wrapper .htop-rt .text {margin-left: 34px;} 
+.header-wrapper .htop-rt .text:nth-child(1) {margin-left: 0;} 
 
-.header-wrapper .top-wrap {position: absolute; display:flex; top: 80px;}
-.header-wrapper .top-wrap h1.logo-wrap {height: 42px;}
-.header-wrapper .top-wrap .navi-wrap {display:flex; align-items: center; font-family: 'EB Garamond', serif; font-size:13px; font-weight:600;}
-.header-wrapper .top-wrap .navi {margin: 16px; cursor: pointer; position: relative;}
+.header-wrapper .top-wrap {display:flex; justify-content:space-between; font-family: 'EB Garamond', serif; font-size:13px; font-weight:500; letter-spacing: 3px; padding: 28px 35px 0 35px;}
+.header-wrapper .top-wrap .top-lt {display:flex; align-items: center; margin-left: ; }
+.header-wrapper .top-wrap .navi-wrap {display:flex; align-items: center;  margin-left: 26px;}
+.header-wrapper .top-wrap .navi {margin: 19px; cursor: pointer; position: relative;}
+.header-wrapper .top-wrap .navi-wrap .hover-active::after {display: block; content: ""; border-bottom: 1px solid #e7c5a1;}
 .header-wrapper .top-wrap .navi-wrap .sub-wrap {display: none;}
 
-.header-wrapper .stage {width: 100%; height: 100vh; position: relative; overflow: hidden;}
-.header-wrapper .slide-wrap {position: relative;}
-.header-wrapper .slide:nth-child(2) {position: absolute; top: 0; left: 0; opacity: 0;}
-.header-wrapper .btn-prev, .header-wrapper .btn-next {font-size: 50px; color: #fff; text-shadow: 0 0 2vw rgba(0,0,0,0.5); position: absolute; z-index: 9; top: calc(50% - 8vw); opacity: .1; transition: opacity 1s; cursor: pointer;}
-.header-wrapper .btn-next {right: 0;}
-.header-wrapper .btn-prev:hover, .header-wrapper .btn-next:hover {opacity: .7;}
-.header-wrapper .pager-wrap {position: absolute; bottom: 50px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; user-select: none; cursor: pointer; z-index: 9;}
-.header-wrapper .pager {font-size: 10px; margin: 12px; cursor: pointer; transition: all 0.5s; }
-.header-wrapper .pager.active {font-size: 16px;}
+.header-wrapper .top-wrap .htop-rt {}
+.header-wrapper .top-wrap .htop-rt .btn-ghost {padding: 8px 16px; border: 1px solid #fff; font-size: 14px; font-weight: 500; color: #fff;}
 
 
 
