@@ -1,3 +1,13 @@
+$(".navi").mouseenter(onEnter);
+$(".navi").mouseleave(onLeave);
+
+function onEnter() {
+	$(this).find(".sub-wrap").stop().slideDown(500, function() {$(this).css("dispaly","flex");});
+}
+function onLeave() {
+	$(this).find(".sub-wrap").stop().slideUp(500);
+}
+
 /* (function(){
 	var slides = [
 		{ id: 0, src: '../img/slide-01.jpg', title: '명화1' },
