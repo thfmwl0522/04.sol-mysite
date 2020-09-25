@@ -5,11 +5,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 /* font-family: 'Open Sans', sans-serif; */
 
-/** 공통사항 *********************/
+/********************* 공통사항 *********************/
 html, body {font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: #fff;}
 
 
-/** .header *********************/
+/********************* .header *********************/
 .header-wrapper {width:100%; height: 100vh; position: relative; color: #fff;} 
 .header-wrapper .slide-wrapper {position: absolute; width: 100%; height: 100vh; overflow: hidden;}
 .header-wrapper .slide-wrapper .slide {position: absolute; width: 100%; height: 100%; top: 0; left: 0; background-size: cover; background-repeat: no-repeat; }
@@ -42,12 +42,14 @@ html, body {font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: 
 
 .top-rt {position: relative; display: flex; align-items: center;}
 .top-rt .btn {position: relative;}
-.top-rt .btn .btn-text {position: absolute; width: 100%; height: 100%; top: 0; left: 0px; display: flex; justify-content: center; align-items: center; font-family: 'Open Sans', sans-serif; font-weight: bold; letter-spacing: 1px; color: #fff; }
+.top-rt .btn .btn-text {position: absolute; width: 100%; height: 100%; top: 0; left: 0px; display: flex; justify-content: center; align-items: center; font-family: 'Open Sans', sans-serif; font-weight: 600; font-size: 13px; letter-spacing: 1px; color: #fff; }
 .top-rt .btn:hover .btn-dash {stroke-dashoffset: -110%; }
 .top-rt .icon {font-size: 18px; padding: 16px; cursor: pointer;}
-.top-rt .bar {display: flex; flex-direction: column; align-items: flex-end; padding-left: 32px; cursor: pointer;}
-.top-rt .bar .bar-t {border: 1px solid #fff; width: 25px; position: absolute; top: 25px; right: 0; display: flex;}
-.top-rt .bar .bar-b {border: 1px solid #fff; width: 25px; position: absolute; top: 35px; right: 0; display: flex;}
+
+.top-rt .bar {display: flex; flex-direction: column; align-items: center; cursor: pointer;}
+.top-rt .bar div::after {border: 1px solid #fff; display: block; content: ""; width:25px; margin:4px}
+
+
 
 .btn-dash {
 	background-color: transparent; color: #fff;
@@ -61,11 +63,16 @@ html, body {font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: 
 
 
 .header-wrapper .slide-wrapper > :nth-child(2) {position: absolute; top: 0; left: 0; opacity: 0;}
-.header-wrapper .title-wrapper {position: absolute; top: 41%; left: 18%; display: flex; justify-content: space-between; color: #fff; z-index: 2; font-family: 'EB Garamond', serif; text-align: center;}
+.header-wrapper .title-wrapper {position: absolute; top: 30%; left: 16%; display: flex; justify-content: space-between; color: #fff; z-index: 2; font-family: 'EB Garamond', serif; text-align: center; letter-spacing:-0.02em; align-items: center;} 
 .header-wrapper .title-wrapper .sub-title {font-size: 22px;  color: #c9ab81; font-style: italic; font-weight: 400;}
-.header-wrapper .title-wrapper .title-bar {display: flex; align-items: center;}
-.header-wrapper .title-wrapper .slide-title {font-size: 4vw; letter-spacing: 10px;}
-/** 반응형 *********************/
+.header-wrapper .title-wrapper .slide-bar::after {display: block; content: ""; border: 1px solid rgba(255, 255, 255, 0.5); width:130px; margin-bottom: 55px;}
+.header-wrapper .title-wrapper .title-wrap {margin:100px;}
+.header-wrapper .title-wrapper .slide-title {font-size: 3.8vw; letter-spacing: 12px; margin:24px 0 50px 0;}
+.header-wrapper .title-wrapper .btn {position: relative;}
+.header-wrapper .title-wrapper .btn .btn-text {position: absolute; width: 100%; height: 100%; top: 0; left: 0px; display: flex; justify-content: center; align-items: center; font-family: 'Open Sans', sans-serif; font-weight: 600; font-size: 13px; letter-spacing: 1px; color: #fff; }
+.header-wrapper .title-wrapper .btn:hover{stroke-dashoffset: -110%;} 
+
+/********************* 반응형 *********************/
 @media screen and (max-width: 1399px) {
 
 }
