@@ -28,19 +28,14 @@ function onLeave() {
 		}
 		$pagerWrap.find(".pager").eq(idx).addClass("active");
 		$pagerWrap.find(".pager").click(onClick);
-		interval = setInterval(onInterval, 6000);
+		interval = setInterval(onInterval, 10000);
 		slideInit();
 	}
 
 	function slideInit() {
-		console.log($($slides[idx]).css("background-position"));
 		$(".header-wrapper .slide").remove();
 		$(".header-wrapper .title-lt .title-wrap").remove();
-		var slide = $($($slides[idx]).clone()).appendTo($wrapper);
-		slide.css("background-position", "0 50%");
-		setTimeout(function(){
-			slide.css("background-position", "-20% 30%");
-		}, 0);
+		$($($slides[idx]).clone()).appendTo($wrapper);
 		$($($titles[idx]).clone()).prependTo($titleLt);
 		$(".header-wrapper .title-lt .title-wrap").css("opacity");
 		$(".header-wrapper .title-lt .title-wrap").css("transform");
