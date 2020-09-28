@@ -28,7 +28,7 @@ function onLeave() {
 		}
 		$pagerWrap.find(".pager").eq(idx).addClass("active");
 		$pagerWrap.find(".pager").click(onClick);
-		interval = setInterval(onInterval, 10000);
+		interval = setInterval(onInterval, 6000);
 		slideInit();
 	}
 
