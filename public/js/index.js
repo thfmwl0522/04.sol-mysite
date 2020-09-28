@@ -33,9 +33,14 @@ function onLeave() {
 	}
 
 	function slideInit() {
+		console.log($($slides[idx]).css("background-position"));
 		$(".header-wrapper .slide").remove();
 		$(".header-wrapper .title-lt .title-wrap").remove();
-		$($($slides[idx]).clone()).appendTo($wrapper);
+		var slide = $($($slides[idx]).clone()).appendTo($wrapper);
+		slide.css("background-position", "0 50%");
+		setTimeout(function(){
+			slide.css("background-position", "-20% 30%");
+		}, 0);
 		$($($titles[idx]).clone()).prependTo($titleLt);
 		$(".header-wrapper .title-lt .title-wrap").css("opacity");
 		$(".header-wrapper .title-lt .title-wrap").css("transform");
