@@ -94,6 +94,7 @@ body {
 
 .header-wrapper .htop-rt .text {
 	margin-left: 34px;
+	margin-bottom: 0px;
 }
 
 .header-wrapper .htop-rt .text:hover {
@@ -275,6 +276,7 @@ body {
 	transform: translateX(-50%);
 	display: flex;
 	flex-direction: column;
+	justify-content:space-between;
 	color: #fff;
 	z-index: 2;
 	font-family: 'EB Garamond', serif;
@@ -286,7 +288,7 @@ body {
 }
 .header-wrapper .title-lt .title {font-size: 24px;}
 .header-wrapper .title-lt .title-wrap {
-	opacity: 0; transform: translateY(20vh); transition: all 2s;
+	opacity: 0; transform: translateY(20vh); transition: all 1.5s;
 }
 .header-wrapper .title-wrap .sub-title {
 	font-size: 22px;
@@ -355,21 +357,45 @@ align-content: center;
 	}
 .header-wrapper .btn-prev {margin-left: 32px;}
 .header-wrapper .btn-next {right: 0; margin-right: 32px;}
-
+.header-wrapper .bar-left{
+	width:154px;
+	position:absolute;
+	border:1px solid rgba(255, 255, 255, 0.5);
+	display:block;
+	counter-reset: "";
+	z-index: 9; top: 50%; transform: translateY(-50%); cursor: pointer;
+	margin-left: 14%;
+	
+}
+.header-wrapper .bar-right{
+	width:154px;
+	position:absolute;
+	border:1px solid rgba(255, 255, 255, 0.5);
+	display:block;
+	counter-reset: "";
+	z-index: 9; top: 50%; transform: translateY(-50%); cursor: pointer;
+	margin-right: 14%;
+	right: 0;
+}
 .sub-wrapper1 {
 	width: 100%; height: 120vh; color: #5f5f5f; 
 	position: relative;}
 /* 	.sub-wrapper1 .sub-top {
 		position: absolute;
 	} */
+.sub-wrapper1 .sub-top {
+	width: 1339px;
+	height: 309px;
+	display:flex;
+	justify-content:space-around;
+}
 .sub-wrapper1 .title-wrap {
 	position: absolute;
-	top: 15vh; /* 41%; */
+	top: 13vh;
 	left: 50%;
 	transform: translateX(-50%);
 	display: flex;
 	flex-direction: column;
-	/* justify-content: space-between; */
 	z-index: 2;
 	font-family: 'EB Garamond', serif;
 	text-align: center;
@@ -386,8 +412,26 @@ align-content: center;
 	font-size: 51px;
 	letter-spacing: 8px;
 	margin: 14px 0 50px 0;
+	color: #525252;
 }
-
+.sub-wrapper1 .bar-left{
+	width:170px;
+	position:absolute;
+	border:1px solid rgba(161, 43, 43, 0.7);
+	display:block;
+	counter-reset: "";
+	left:22%;
+	top: 16%;
+}
+.sub-wrapper1 .bar-right{
+	width:170px;
+	position:absolute;
+	border:1px solid rgba(161, 43, 43, 0.7);
+	display:block;
+	counter-reset: "";
+	left:50%;
+	top: 16%;
+}
 .sub-bottom {
 /* 	width: 100vh; */
 	position: absolute;
