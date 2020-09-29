@@ -78,31 +78,57 @@ function onLeave() {
 
 	/*********** .sub-slide2 ***********/
 
+
 (function(){
-	var $wrapper = $("slide-wrapper2");
+	var datas = [
+		{id: 1, src: '../img/show-slider-img-1.jpg', date: 'Mar 1 - Mar 3 2022', title: 'THE STREET PAVEMENT1'},
+		{id: 1, src: '../img/show-slider-img-2.jpg', date: 'Mar 2 - Mar 3 2022', title: 'THE STREET PAVEMENT2'},
+		{id: 1, src: '../img/show-slider-img-3.jpg', date: 'Mar 3 - Mar 3 2022', title: 'THE STREET PAVEMENT3'},
+		{id: 1, src: '../img/show-slider-img-4.jpg', date: 'Mar 4 - Mar 3 2022', title: 'THE STREET PAVEMENT4'},
+		{id: 1, src: '../img/show-slider-img-5.jpg', date: 'Mar 5 - Mar 3 2022', title: 'THE STREET PAVEMENT5'},
+		{id: 1, src: '../img/show-slider-img-6.jpg', date: 'Mar 6 - Mar 3 2022', title: 'THE STREET PAVEMENT6'},
+		{id: 1, src: '../img/show-slider-img-10.jpg', date: 'Mar 7 - Mar 3 2022', title: 'THE STREET PAVEMENT7'},
+		{id: 1, src: '../img/show-slider-img-11.jpg', date: 'Mar 8 - Mar 3 2022', title: 'THE STREET PAVEMENT8'},
+	];
+	var $wrapper = $(".slide-wrapper2");
 	var $slideWrap = $(".slide-wrap", $wrapper); 
 	var $btnPrev = $(".btn-prev", $wrapper); 
 	var $btnNext = $(".btn-next", $wrapper);
+	var $pagerWrap = $(".pager-wrap", $wrapper);
 	var $slides = [];	
 	var idx = 0;
 	var lastIdx = datas.length - 1;
 	var target;
 	var interval;
 
+	init();
 	function init() {
+		for(var i=0; i<datas.length; i++) {
+			html  = '<div class="slide">';
+			html += '<div class="img1">';
+			html += '<img src="'+datas[i].src+'" class="w-100">';
+			html += '<div class="text-wrap">';
+			html += '<div class="slide-subt">'+datas[i].date+'</div>';
+			html += '<div class="slide-maint">'+datas[i].title+'</div>';
+			html += '</div>';
+			html += '</div>';
+			$slides.push($(html));
+		}
 		for(var i=0; i<$slides.length; i++) {
 			$pagerWrap.append('<div class="pager">·</div>');
 		}
 		$pagerWrap.find(".pager").eq(idx).addClass("active");
 		$pagerWrap.find(".pager").click(onClick);
-		interval = setInterval(onInterval, 10000);
+		// interval = setInterval(onInterval, 10000);
 		slideInit();
 	}
 
 	function slideInit() {
 		$btnPrev.off("click").click(onPrev);
 		$btnNext.off("click").click(onNext);
-		$($slides[idx].clone()).appendTo($slideWrap.empty().attr("style", ""));
+		$slideWrap.empty();
+		console.log($slideWrap);
+		$($slides[idx].clone()).appendTo($slideWrap);
 		if(idx == 0) $($slides[lastIdx].clone()).prependTo($slideWrap);
 		else $($slides[idx - 1].clone()).prependTo($slideWrap);
 		for(var i=1; i<=4; i++) {
@@ -125,6 +151,13 @@ function onLeave() {
 		ani();
 	}
 
+	function onClick() {
+
+	}
+
+	function onInterval() {
+
+	}
 
 	$wrapper.hover(function(){
 		clearInterval(interval);
