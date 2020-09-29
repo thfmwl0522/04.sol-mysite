@@ -607,6 +607,7 @@ body {
 	height: 114vh;
 	color: #5f5f5f;
 	position: relative;
+	margin:auto;
 }
 
 
@@ -662,6 +663,23 @@ body {
 	color: #525252;
 }
 
+.sub-wrapper3 .slide-wrapper2 {
+	width: 100%; margin:auto; position: relative;
+}
+
+.sub-wrapper3 .stage {width: 80%; margin: 100px auto; position: relative; overflow: hidden; /* border: 10px solid blue; */}
+
+
+.sub-wrapper3 .slide-wrap {position: relative; display:flex; width:100%; left: -25%; }
+.sub-wrapper3 .slide {position: relative; flex: 20% 0 0; display:flex;}
+.sub-wrapper3 .slide img {margin:1em;}
+
+
+.sub-wrapper3 .btn-prev, .sub-wrapper3 .btn-next {
+	font-size: 2rem; 
+	color: purple; position: absolute; z-index: 9; top: 50%; }
+.sub-wrapper3 .btn-prev {left: 10vw;}
+.sub-wrapper3 .btn-next {right: 10vw;}
 
 
 

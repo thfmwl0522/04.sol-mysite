@@ -75,4 +75,62 @@ function onLeave() {
 	}
 
 })();
+
+	/*********** .sub-slide2 ***********/
+
+(function(){
+	var $wrapper = $("slide-wrapper2");
+	var $slideWrap = $(".slide-wrap", $wrapper); 
+	var $btnPrev = $(".btn-prev", $wrapper); 
+	var $btnNext = $(".btn-next", $wrapper);
+	var $slides = [];	
+	var idx = 0;
+	var lastIdx = datas.length - 1;
+	var target;
+	var interval;
+
+	function init() {
+		for(var i=0; i<$slides.length; i++) {
+			$pagerWrap.append('<div class="pager">·</div>');
+		}
+		$pagerWrap.find(".pager").eq(idx).addClass("active");
+		$pagerWrap.find(".pager").click(onClick);
+		interval = setInterval(onInterval, 10000);
+		slideInit();
+	}
+
+	function slideInit() {
+		$btnPrev.off("click").click(onPrev);
+		$btnNext.off("click").click(onNext);
+		$($slides[idx].clone()).appendTo($slideWrap.empty().attr("style", ""));
+		if(idx == 0) $($slides[lastIdx].clone()).prependTo($slideWrap);
+		else $($slides[idx - 1].clone()).prependTo($slideWrap);
+		for(var i=1; i<=4; i++) {
+			if(idx + i > lastIdx) $($slides[idx + i - 1 - lastIdx].clone()).appendTo($slideWrap);
+			else $($slides[idx + i].clone()).appendTo($slideWrap);
+		}
+	}
+
+	function ani() {
+		$slideWrap.stop().animate({"left": target+"%"}, 500, slideInit);
+	}
+
+	function onPrev() {
+
+		ani();
+	}
+	
+	function onNext() {
+
+		ani();
+	}
+
+
+	$wrapper.hover(function(){
+		clearInterval(interval);
+	}, function(){
+		interval = setInterval(onNext, 3000);
+	});
+
+})();
  
