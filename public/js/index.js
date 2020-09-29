@@ -119,7 +119,7 @@ function onLeave() {
 		}
 		$pagerWrap.find(".pager").eq(idx).addClass("active");
 		$pagerWrap.find(".pager").click(onClick);
-		// interval = setInterval(onInterval, 10000);
+
 		slideInit();
 	}
 
