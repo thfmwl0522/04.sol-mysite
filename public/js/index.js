@@ -33,9 +33,14 @@ function onLeave() {
 	}
 
 	function slideInit() {
+		console.log($($slides[idx]).css("background-position"));
 		$(".header-wrapper .slide").remove();
 		$(".header-wrapper .title-lt .title-wrap").remove();
-		$($($slides[idx]).clone()).appendTo($wrapper);
+		var slide = $($($slides[idx]).clone()).appendTo($wrapper);
+		slide.css("background-position", "0 50%");
+		setTimeout(function(){
+			slide.css("background-position", "-20% 30%");
+		}, 0);
 		$($($titles[idx]).clone()).prependTo($titleLt);
 		$(".header-wrapper .title-lt .title-wrap").css("opacity");
 		$(".header-wrapper .title-lt .title-wrap").css("transform");
@@ -81,14 +86,16 @@ function onLeave() {
 
 (function(){
 	var datas = [
-		{id: 1, src: '../img/show-slider-img-1.jpg', date: 'Mar 1 - Mar 3 2022', title: 'THE STREET PAVEMENT1'},
-		{id: 1, src: '../img/show-slider-img-2.jpg', date: 'Mar 2 - Mar 3 2022', title: 'THE STREET PAVEMENT2'},
-		{id: 1, src: '../img/show-slider-img-3.jpg', date: 'Mar 3 - Mar 3 2022', title: 'THE STREET PAVEMENT3'},
-		{id: 1, src: '../img/show-slider-img-4.jpg', date: 'Mar 4 - Mar 3 2022', title: 'THE STREET PAVEMENT4'},
-		{id: 1, src: '../img/show-slider-img-5.jpg', date: 'Mar 5 - Mar 3 2022', title: 'THE STREET PAVEMENT5'},
-		{id: 1, src: '../img/show-slider-img-6.jpg', date: 'Mar 6 - Mar 3 2022', title: 'THE STREET PAVEMENT6'},
-		{id: 1, src: '../img/show-slider-img-10.jpg', date: 'Mar 7 - Mar 3 2022', title: 'THE STREET PAVEMENT7'},
-		{id: 1, src: '../img/show-slider-img-11.jpg', date: 'Mar 8 - Mar 3 2022', title: 'THE STREET PAVEMENT8'},
+		{id: 0, src: '../img/show-slider-img-1.jpg', date: 'Mar 1 - Mar 3 2022', title: 'THE STREET PAVEMENTS', cont: 'View more'},
+		{id: 1, src: '../img/show-slider-img-2.jpg', date: 'Mar 2 - Mar 15 2022', title: 'ABSTRACT WIREFRAME', cont: 'View more'},
+		{id: 2, src: '../img/show-slider-img-3.jpg', date: 'Mar 3 - Mar 15 2022', title: 'LOOKING TO ETERNITY', cont: 'View more'},
+		{id: 3, src: '../img/show-slider-img-4.jpg', date: 'Mar 4 - Mar 15 2022', title: 'FLOWERS AND MINDFULNESS', cont: 'View more'},
+		{id: 4, src: '../img/show-slider-img-5.jpg', date: 'Mar 5 - Mar 15 2022', title: 'TAKE ME TO THE FIELDS', cont: 'View more'},
+		{id: 5, src: '../img/show-slider-img-6.jpg', date: 'Mar 6 - Mar 15 2022', title: 'INNER SPIRIT REVEALED', cont: 'View more'},
+		{id: 6, src: '../img/show-slider-img-10.jpg', date: 'Mar 7 - Mar 15 2022', title: 'DON MISSURI PRESENCE', cont: 'View more'},
+		{id: 7, src: '../img/show-slider-img-11.jpg', date: 'Mar 8 - Mar 15 2022', title: 'MONTIVELLI’S FLOWERS',cont: 'View more'},
+		{id: 8, src: '../img/show-slider-img-11.jpg', date: 'Mar 8 - Mar 15 2022', title: 'LA TRIENALE DI VENICE',cont: 'View more'},
+		{id: 9, src: '../img/show-slider-img-11.jpg', date: 'Mar 8 - Mar 15 2022', title: 'LA BERCEUSE TALKS',cont: 'View more'},
 	];
 	var $wrapper = $(".slide-wrapper2");
 	var $slideWrap = $(".slide-wrap", $wrapper); 
@@ -110,6 +117,10 @@ function onLeave() {
 			html += '<div class="text-wrap">';
 			html += '<div class="slide-subt">'+datas[i].date+'</div>';
 			html += '<div class="slide-maint">'+datas[i].title+'</div>';
+			html += '</div>';
+			html += '<div class="sub-wrap">';
+			html += '<div class="hover-ani"></div>';
+			html += '<div class="view-more">'+datas[i].cont+'</div>';
 			html += '</div>';
 			html += '</div>';
 			$slides.push($(html));
