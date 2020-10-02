@@ -8,6 +8,9 @@ function onLeave() {
 	$(this).find(".sub-wrap").stop().slideUp(500);
 }
 
+
+/********************* main-slide ***********************/
+
 (function(){
 	var $stage = $(".header-wrapper .stage");
 	var $wrapper = $(".header-wrapper .slide-wrapper");
@@ -28,12 +31,11 @@ function onLeave() {
 		}
 		$pagerWrap.find(".pager").eq(idx).addClass("active");
 		$pagerWrap.find(".pager").click(onClick);
-		interval = setInterval(onInterval, 10000);
+		interval = setInterval(onInterval, 7000);
 		slideInit();
 	}
 
 	function slideInit() {
-		console.log($($slides[idx]).css("background-position"));
 		$(".header-wrapper .slide").remove();
 		$(".header-wrapper .title-lt .title-wrap").remove();
 		var slide = $($($slides[idx]).clone()).appendTo($wrapper);
@@ -55,7 +57,6 @@ function onLeave() {
 		idx = (idx == 0) ? lastIdx : idx - 1;
 		ani();
 	}
-
 	function onNext() {
 		target = '-100%';
 		idx = (idx == lastIdx) ? 0 : idx + 1;
@@ -120,7 +121,7 @@ function onLeave() {
 			html += '</div>';
 			html += '<div class="sub-wrap">';
 			html += '<div class="hover-ani"></div>';
-			html += '<div class="view-more">'+datas[i].cont+'</div>';
+			html += '<div class="slide-text">'+datas[i].cont+'</div>';
 			html += '</div>';
 			html += '</div>';
 			$slides.push($(html));
