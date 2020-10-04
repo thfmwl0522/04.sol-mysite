@@ -2,7 +2,7 @@ $(".navi").mouseenter(onEnter);
 $(".navi").mouseleave(onLeave);
 
 function onEnter() {
-	$(this).find(".sub-wrap").stop().slideDown(500, function() {$(this).css("dispaly","flex");});
+	$(this).find(".sub-wrap").stop().slideDown(500);
 }
 function onLeave() {
 	$(this).find(".sub-wrap").stop().slideUp(500);
@@ -95,8 +95,8 @@ function onLeave() {
 		{id: 5, src: '../img/show-slider-img-6.jpg', date: 'Mar 6 - Mar 15 2022', title: 'INNER SPIRIT REVEALED', cont: 'View more'},
 		{id: 6, src: '../img/show-slider-img-10.jpg', date: 'Mar 7 - Mar 15 2022', title: 'DON MISSURI PRESENCE', cont: 'View more'},
 		{id: 7, src: '../img/show-slider-img-11.jpg', date: 'Mar 8 - Mar 15 2022', title: 'MONTIVELLI’S FLOWERS',cont: 'View more'},
-		{id: 8, src: '../img/show-slider-img-11.jpg', date: 'Mar 8 - Mar 15 2022', title: 'LA TRIENALE DI VENICE',cont: 'View more'},
-		{id: 9, src: '../img/show-slider-img-11.jpg', date: 'Mar 8 - Mar 15 2022', title: 'LA BERCEUSE TALKS',cont: 'View more'},
+		{id: 8, src: '../img/show-slider-img-12.jpg', date: 'Mar 8 - Mar 15 2022', title: 'LA TRIENALE DI VENICE',cont: 'View more'},
+		{id: 9, src: '../img/show-slider-img-13.jpg', date: 'Mar 8 - Mar 15 2022', title: 'LA BERCEUSE TALKS',cont: 'View more'},
 	];
 	var $wrapper = $(".slide-wrapper2");
 	var $slideWrap = $(".slide-wrap", $wrapper); 
@@ -126,12 +126,11 @@ function onLeave() {
 			html += '</div>';
 			$slides.push($(html));
 		}
-		for(var i=0; i<$slides.length; i++) {
+/* 		for(var i=0; i<$slides.length; i++) {
 			$pagerWrap.append('<div class="pager">·</div>');
 		}
 		$pagerWrap.find(".pager").eq(idx).addClass("active");
-		$pagerWrap.find(".pager").click(onClick);
-
+		$pagerWrap.find(".pager").click(onClick); */
 		slideInit();
 	}
 
@@ -149,33 +148,28 @@ function onLeave() {
 		}
 	}
 
-	function ani() {
-		$slideWrap.stop().animate({"left": target+"%"}, 500, slideInit);
-	}
 
 	function onPrev() {
-
+		$(this).off("click");
+		idx = (idx == 0) ? lastIdx : idx - 1;
+		target = 0
 		ani();
 	}
 	
 	function onNext() {
-
+		$(this).off("click");
+		idx = idx == lastIdx ? 0 : idx + 1;
+		winWid = $(window).outerWidth();
+		if(winWid < 576) target = -200;
+		else if(winWid < 768) target = -100;
+		else if(winWid < 992) target = -66.6666;
+		else target = -50;
 		ani();
 	}
 
-	function onClick() {
-
+	function ani() {
+		$slideWrap.stop().animate({"left": target+"%"}, 700, slideInit);
 	}
-
-	function onInterval() {
-
-	}
-
-	$wrapper.hover(function(){
-		clearInterval(interval);
-	}, function(){
-		interval = setInterval(onNext, 3000);
-	});
 
 })();
  
