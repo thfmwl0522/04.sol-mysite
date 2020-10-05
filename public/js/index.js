@@ -125,7 +125,12 @@ function onLeave() {
 			html += '</div>';
 			html += '</div>';
 			$slides.push($(html));
+			html = '<span class="pager">·</span>';
+			$pagerWrap.append(html);
+			console.log($pagerWrap);
 		}
+		$pager = $pagerWrap.find(".pager");
+		$pager.click(onPagerClick).eq(idx).addClass("active");
 		slideInit();
 	}
 
@@ -160,6 +165,11 @@ function onLeave() {
 		else if(winWid < 768) target = -100;
 		else if(winWid < 992) target = -66.6666;
 		else target = -50;
+		ani();
+	}
+
+	function onPagerClick() {
+		idx = $(this).index();
 		ani();
 	}
 
