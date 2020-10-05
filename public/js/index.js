@@ -126,12 +126,12 @@ function onLeave() {
 			html += '</div>';
 			$slides.push($(html));
 		}
-		for(var i=0; i<$slides.length; i++) {
+/* 		for(var i=0; i<$slides.length; i++) {
 			$pagerWrap.append('<div class="pager">·</div>');
 		}
 		$pagerWrap.find(".pager").eq(idx).addClass("active");
 		$pagerWrap.find(".pager").click(onClick);
-		slideInit();
+		slideInit(); */
 	}
 
 	function slideInit() {
@@ -159,11 +159,6 @@ function onLeave() {
 	function onNext() {
 		$(this).off("click");
 		idx = idx == lastIdx ? 0 : idx + 1;
-		winWid = $(window).outerWidth();
-		if(winWid < 576) target = -200;
-		else if(winWid < 768) target = -100;
-		else if(winWid < 992) target = -66.6666;
-		else target = -50;
 		ani();
 	}
 
