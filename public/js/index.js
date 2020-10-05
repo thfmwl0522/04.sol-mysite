@@ -180,7 +180,109 @@ function onLeave() {
 })();
  
 
+/*********** .sub-slide3 ***********/
 
+
+(function(){
+	var datas = [
+		{id: 0, src: '../img/shop-img-1-600x600.jpg', title: 'MUSEA BOOK', star: '★★★★★', price: '17$', cont:'Add to cart'},
+		{id: 1, src: '../img/shop-img-2-600x600.jpg', title: 'DEGAS BOOK', star: '★★☆☆☆', price: '15$', cont:'Add to cart'},
+		{id: 2, src: '../img/shop-img-3-600x600.jpg', title: 'LINEN BAG', star: '★☆☆☆☆', price: '15$', cont:'Add to cart'},
+		{id: 3, src: '../img/shop-img-4-600x600.jpg', title: 'BROCHURE', star: '★★★★★', price: '29$', cont:'Add to cart'},
+		{id: 4, src: '../img/shop-img-5-600x600.jpg', title: 'SMALL RUG', star: '★★★☆☆', price: '30$', cont:'Add to cart'},
+		{id: 5, src: '../img/shop-img-6-600x600.jpg', title: 'SCULPTURE', star: '★★★★☆', price: '20$', cont:'Add to cart'},
+		{id: 6, src: '../img/shop-img-7-600x600.jpg', title: 'MUG', star: '★★★★★', price: '13$', cont:'Add to cart'},
+		{id: 7, src: '../img/shop-img-8-600x600.jpg', title: 'WINSLOW BAG' , star: '★★★☆☆', price: '32$', cont:'Add to cart'},
+		{id: 8, src: '../img/shop-img-9-600x600.jpg', title: 'PHONE CASE', star: '★★★★☆', price: '15$', cont:'Add to cart'},
+		{id: 9, src: '../img/shop-img-10-600x600.jpg', title: 'ALLEN CARDS', star: '★★☆☆☆', price: '24$', cont:'Add to cart'},
+		{id: 10, src: '../img/shop-img-11-600x600.jpg', title: 'ART', star: '★★☆☆☆', price: '950$', cont:'Add to cart'},
+		{id: 11, src: '../img/shop-img-12-600x600.jpg', title: 'BLUE HOODIE', star: '★★★★★', price: '20$', cont:'Add to cart'},
+	];
+	var $wrapper = $(".slide-wrapper3");
+	var $slideWrap = $(".slide-wrap", $wrapper); 
+	var $btnPrev = $(".btn-prev", $wrapper); 
+	var $btnNext = $(".btn-next", $wrapper);
+	var $slides = [];	
+	var idx = 0;
+	var lastIdx = datas.length - 1;
+	var target;
+	var interval;
+
+	init();
+	function init() {
+		for(var i=0; i<datas.length; i++) {
+			html  = '<div class="slide">';
+			html += '<div class="img1">';
+			html += '<img src="'+datas[i].src+'" class="w-100">';
+			html += '<div class="text-wrap">';
+			html += '<div class="title">'+datas[i].title+'</div>';
+			html += '<div class="star">'+datas[i].star+'</div>';
+			html += '<div class="price">'+datas[i].price+'</div>';
+			html += '</div>';
+			html += '<div class-"btn-wrap>';
+			html += '<div class="btn">';
+			html += '<svg height="46" width="157" class="btn-dash">';
+			html += '<rect height="46" width="157"></rect>';
+			html += '</svg>';
+			html += '<div class="btn-text">'+datas[i].cont+'</div>';
+			html += '</div>';
+			html += '</div>';
+			html += '</div>';
+			$slides.push($(html));
+		}
+/* 		interval = setInterval(onInterval, 7000); */
+		slideInit();
+	}
+
+	function slideInit() {
+		$btnPrev.off("click").click(onPrev);
+		$btnNext.off("click").click(onNext);
+		$slideWrap.empty();
+		console.log($slideWrap);
+		$slideWrap.css("left", "-25%");
+		$($slides[idx].clone()).appendTo($slideWrap);
+		if(idx == 0) $($slides[lastIdx].clone()).prependTo($slideWrap);
+		else $($slides[idx - 1].clone()).prependTo($slideWrap);
+		for(var i=1; i<=4; i++) {
+			if(idx + i > lastIdx) $($slides[idx + i - 1 - lastIdx].clone()).appendTo($slideWrap);
+			else $($slides[idx + i].clone()).appendTo($slideWrap);
+		}
+	}
+
+
+	function onPrev() {
+		$(this).off("click");
+		idx = (idx == 0) ? lastIdx : idx - 1;
+		target = 0
+		ani();
+	}
+	
+	function onNext() {
+		$(this).off("click");
+		idx = idx == lastIdx ? 0 : idx + 1;
+		winWid = $(window).outerWidth();
+		if(winWid < 576) target = -200;
+		else if(winWid < 768) target = -100;
+		else if(winWid < 992) target = -66.6666;
+		else target = -50;
+		ani();
+	}
+
+	function onPagerClick() {
+		idx = $(this).index();
+		ani();
+	}
+
+	function onInterval() {
+		idx = (idx == lastIdx) ? 0 : idx + 1;
+		ani();
+	}
+
+	function ani() {
+		$slideWrap.stop().animate({"left": target+"%"}, 700, slideInit);
+	}
+
+})();
 
 
 $(window).scroll(function(){
