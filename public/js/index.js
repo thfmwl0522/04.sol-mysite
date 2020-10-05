@@ -179,3 +179,15 @@ function onLeave() {
 
 })();
  
+
+
+
+
+$(window).scroll(function(){
+/* 	var sctop = $(document).scrollTop(); */
+	var offsetop = $(document).offsetTop();
+	console.log(offsetop);
+	if (sctop > 500) {
+		$(".img-wrap").css("")
+	}
+});
