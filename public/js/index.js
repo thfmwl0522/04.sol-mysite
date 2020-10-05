@@ -126,11 +126,11 @@ function onLeave() {
 			html += '</div>';
 			$slides.push($(html));
 		}
-/* 		for(var i=0; i<$slides.length; i++) {
+		for(var i=0; i<$slides.length; i++) {
 			$pagerWrap.append('<div class="pager">·</div>');
 		}
 		$pagerWrap.find(".pager").eq(idx).addClass("active");
-		$pagerWrap.find(".pager").click(onClick); */
+		$pagerWrap.find(".pager").click(onClick);
 		slideInit();
 	}
 
