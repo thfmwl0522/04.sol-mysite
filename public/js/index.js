@@ -126,7 +126,6 @@ function onLeave() {
 			html += '</div>';
 			$slides.push($(html));
 		}
-
 		slideInit();
 	}
 
@@ -135,6 +134,7 @@ function onLeave() {
 		$btnNext.off("click").click(onNext);
 		$slideWrap.empty();
 		console.log($slideWrap);
+		$slideWrap.css("left", "-25%");
 		$($slides[idx].clone()).appendTo($slideWrap);
 		if(idx == 0) $($slides[lastIdx].clone()).prependTo($slideWrap);
 		else $($slides[idx - 1].clone()).prependTo($slideWrap);
