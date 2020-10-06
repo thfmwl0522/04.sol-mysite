@@ -681,11 +681,9 @@ cursor: pointer;
 	animation-fill-mode: forwards;
 }
 @keyframes scroll2 {
-	0% {transform: translateX(0);}
-	100% {	
-		transform: translateX(100%);
-	overflow: hidden;
-display: none;}
+	0%{}
+	50%{transform: ;}
+	100%{}
 }
 
 .sub-wrapper3 {
