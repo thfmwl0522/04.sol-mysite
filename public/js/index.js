@@ -295,3 +295,25 @@ $(function() {
 });
 
  */
+$(function(){
+	 var $offset = 300;
+	 var $offsetTop = $(".sub-wrapper1").offset().top - 300;
+	 
+
+	 $(window).scroll(function() {
+		 if($(window).scrollTop() > $offsetTop) {
+			$(".sub-wrapper1").find('.img-wrap').css("animation-name","scroll");
+		 }
+	 });
+});
+
+/* $(function(){
+	var $offsetTop = $(".sub-wrapper2").offset().top - 500;
+	
+
+	$(window).scroll(function() {
+		if($(window).scrollTop() > $offsetTop) {
+		 $(".sub-wrapper2").find('.img-wrap').css("animation-name","scroll2");
+		}
+	});
+}); */

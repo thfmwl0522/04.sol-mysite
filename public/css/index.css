@@ -47,6 +47,15 @@ body {
 		transform: scaleX(1);
 	}
 }
+/* .animate {
+	animation: fadeIn 1s forwards ease-in;
+	transition: 5s ease-in-out;
+}
+@keyframes fadeIn {
+	0%{ opacity: 0;}
+	100%{ opacity: 1;}
+}
+ */
 /********************* .header *********************/
 .header-wrapper {
 	width: 100%;
@@ -485,22 +494,16 @@ cursor: pointer;
 	width: 100%;
 	height: 100%;
 	background-color: #fff;
-	border: 10px solid red;
+/* 	border: 10px solid red; */
 	z-index: 9;
 	animation-name:noen;
-	animation-duration:2s;
+	animation-duration:4s;
 	animation-iteration-count:initial;
 	animation-fill-mode: forwards;
-
 }
 @keyframes scroll {
-	0% {
-		transform: translateY(0);
-	}
-	100% {
-		transform: translateY(100%);
-	}
-	
+	0% {transform: translateY(0);}
+	100% {	transform: translateY(100%);}
 }
 .sub-bottom .sub-img {
 	width:423px;
@@ -641,10 +644,11 @@ cursor: pointer;
 
 .sub-wrapper2 .btn .btn-text {
 	position: absolute;
-	width: 100%;
+	width: 50%;
 	height: 100%;
 	top: 0;
-	left: 0;
+	left: 50%;
+	transform: translateX(-50%);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -656,6 +660,32 @@ cursor: pointer;
 
 .sub-wrapper2 .btn:hover .btn-dash {
 	stroke-dashoffset: -110%;
+}
+/* .sub-wrapper2 .img-wrapper {
+	position: relative;
+	width:423px;
+	height: 600px;
+} */
+.sub-wrapper2 .img-wrap {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 50%;
+	height: 100%;
+	background-color: #fff;
+/* 	border: 10px solid red; */
+	z-index: 9;
+	animation-name:none;
+	animation-duration:5s;
+	animation-iteration-count:initial;
+	animation-fill-mode: forwards;
+}
+@keyframes scroll2 {
+	0% {transform: translateX(0);}
+	100% {	
+		transform: translateX(100%);
+	overflow: hidden;
+display: none;}
 }
 
 .sub-wrapper3 {
