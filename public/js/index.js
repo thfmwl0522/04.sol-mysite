@@ -96,7 +96,7 @@ function onLeave() {
 		{id: 6, src: '../img/show-slider-img-10.jpg', date: 'Mar 7 - Mar 15 2022', title: 'DON MISSURI PRESENCE', cont: 'View more'},
 		{id: 7, src: '../img/show-slider-img-11.jpg', date: 'Mar 8 - Mar 15 2022', title: 'MONTIVELLI’S FLOWERS',cont: 'View more'},
 		{id: 8, src: '../img/show-slider-img-12.jpg', date: 'Mar 8 - Mar 15 2022', title: 'LA TRIENALE DI VENICE',cont: 'View more'},
-		{id: 9, src: '../img/show-slider-img-13.jpg', date: 'Mar 8 - Mar 15 2022', title: 'LA BERCEUSE TALKS',cont: 'View more'},
+		{id: 9, src: '../img/show-slider-img-13.jpg', date: 'Mar 8 - Mar 15 2022', title: 'LA BERCEUSE TALKS',cont: 'View more'}
 	];
 	var $wrapper = $(".slide-wrapper2");
 	var $slideWrap = $(".slide-wrap", $wrapper); 
@@ -127,7 +127,7 @@ function onLeave() {
 			$slides.push($(html));
 			html = '<span class="pager">·</span>';
 			$pagerWrap.append(html);
-			console.log($pagerWrap);
+			//console.log($pagerWrap);
 		}
 		$pager = $pagerWrap.find(".pager");
 		$pager.click(onPagerClick).eq(idx).addClass("active");
@@ -138,7 +138,7 @@ function onLeave() {
 		$btnPrev.off("click").click(onPrev);
 		$btnNext.off("click").click(onNext);
 		$slideWrap.empty();
-		console.log($slideWrap);
+		//console.log($slideWrap);
 		$slideWrap.css("left", "-25%");
 		$($slides[idx].clone()).appendTo($slideWrap);
 		if(idx == 0) $($slides[lastIdx].clone()).prependTo($slideWrap);
@@ -196,7 +196,7 @@ function onLeave() {
 		{id: 8, src: '../img/shop-img-9-600x600.jpg', title: 'PHONE CASE', star: '★★★★☆', price: '15$', cont:'Add to cart'},
 		{id: 9, src: '../img/shop-img-10-600x600.jpg', title: 'ALLEN CARDS', star: '★★☆☆☆', price: '24$', cont:'Add to cart'},
 		{id: 10, src: '../img/shop-img-11-600x600.jpg', title: 'ART', star: '★★☆☆☆', price: '950$', cont:'Add to cart'},
-		{id: 11, src: '../img/shop-img-12-600x600.jpg', title: 'BLUE HOODIE', star: '★★★★★', price: '20$', cont:'Add to cart'},
+		{id: 11, src: '../img/shop-img-12-600x600.jpg', title: 'BLUE HOODIE', star: '★★★★★', price: '20$', cont:'Add to cart'}
 	];
 	var $wrapper = $(".slide-wrapper3");
 	var $slideWrap = $(".slide-wrap", $wrapper); 
@@ -219,13 +219,11 @@ function onLeave() {
 			html += '<div class="star">'+datas[i].star+'</div>';
 			html += '<div class="price">'+datas[i].price+'</div>';
 			html += '</div>';
-			html += '<div class-"btn-wrap>';
 			html += '<div class="btn">';
 			html += '<svg height="46" width="157" class="btn-dash">';
 			html += '<rect height="46" width="157"></rect>';
 			html += '</svg>';
 			html += '<div class="btn-text">'+datas[i].cont+'</div>';
-			html += '</div>';
 			html += '</div>';
 			html += '</div>';
 			$slides.push($(html));
@@ -238,7 +236,7 @@ function onLeave() {
 		$btnPrev.off("click").click(onPrev);
 		$btnNext.off("click").click(onNext);
 		$slideWrap.empty();
-		console.log($slideWrap);
+		//console.log($slideWrap);
 		$slideWrap.css("left", "-25%");
 		$($slides[idx].clone()).appendTo($slideWrap);
 		if(idx == 0) $($slides[lastIdx].clone()).prependTo($slideWrap);
@@ -285,11 +283,15 @@ function onLeave() {
 })();
 
 
-$(window).scroll(function(){
-/* 	var sctop = $(document).scrollTop(); */
-	var offsetop = $(document).offsetTop();
-	console.log(offsetop);
-	if (sctop > 500) {
-		$(".img-wrap").css("")
-	}
+
+/*********** 이미지 animation ***********/
+/* 
+$(function() {
+	$(window).scroll(function() {
+		var offsetTop = $("sub-wrapper1").offset();
+		if ($(window).scrollTop() > offsetTop.top) {
+			$('img-wrapper >.img-wrap').css("animation-name","scroll");
+	});
 });
+
+ */
