@@ -391,3 +391,82 @@ $(function(){
 	});
 });
 
+
+
+
+
+
+/* (function(){
+	var slides = [
+		{ id: 0, article: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor<br>incididunt ut labore et dolore magna aliqua ut enimad<br>minim veniam quis nostrud exerci tation ullamco', name: 'Isabel Tillman', visitor: 'Visitor' },
+		{ id: 1, article: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor<br>incididunt ut labore et dolore magna aliqua ut enimad<br>minim veniam quis nostrud exerci tation ullamco', name: 'Isabel Tillman', visitor: 'Visitor' },
+		{ id: 2, article: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor<br>incididunt ut labore et dolore magna aliqua ut enimad<br>minim veniam quis nostrud exerci tation ullamco', name: 'Isabel Tillman', visitor: 'Visitor' },
+
+	];
+
+	var $slideWrap = $(".sub-wrapper5 .subslide-wrap");
+	var $btnPrev = $(".sub-wrapper5 .btn-prev");
+	var $btnNext = $(".sub-wrapper5 .btn-next");
+	var $pagerWrap = $(".sub-wrapper5 .pager-wrap");
+	var $pager;				// 생성된 $(".wrapper6 .pager")
+	var $slides = [];	// $(".slide")들 모두를 담아놓는 배열(필요할때 복사해서 가져다 쓴다)
+	var idx = 0;											// 현재 화면에 보이는 slide의 index
+	var lastIdx = slides.length - 1;	// $(".slide")들 중에 마지막 index
+	var interval;											// setInterval을 담아놓는 변수
+
+	function init() {
+		var html, i;
+		for(i in slides) {
+			html = '<div class="slide-text">';
+			html += '<div class="slide-article">'+slides[i].article+ '</div>';
+			html += '<div class="slide-name">'+slides[i].name+ '</div>';
+			html += '<div class="slide-visitor">'+slides[i].visitor+ '</div>';
+			html += '</div>';
+			$slides[i] = $(html);
+			html = '<span class="pager">●</span>';
+			$pagerWrap.append(html);
+		}
+		$pager = $pagerWrap.find(".pager");
+		$pager.click(onPagerClick).eq(idx).addClass("active");
+		slideInit();
+		interval = setInterval(onNext, 3000);
+	}
+
+	function slideInit() {
+		$slideWrap.html($slides[idx].clone());
+	}
+
+	$btnPrev.click(onPrev);
+	$btnNext.click(onNext);
+	$slideStage.mouseover(onHover);
+	$slideStage.mouseleave(onLeave);
+
+	function onHover() {
+		clearInterval(interval);
+	}
+
+	function onLeave() {
+		interval = setInterval(onNext, 3000);
+	}
+
+	function onPrev() {
+		idx = (idx == 0) ? lastIdx : idx - 1;
+		ani();
+	}
+
+	function onNext() {
+		idx = (idx == lastIdx) ? 0 : idx + 1;
+		ani();
+	}
+
+	function onPagerClick() {
+		idx = $(this).index();
+		ani();
+	}
+
+	function ani() {
+		$pager.removeClass("active").eq(idx).addClass("active");
+		$($slides[idx].clone()).appendTo($slideWrap).stop().animate({"opacity": 1}, 500, slideInit);
+	}
+	init();
+})(); */
