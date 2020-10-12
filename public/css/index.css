@@ -494,6 +494,7 @@ cursor: pointer;
 	padding: 110px 50px 36px;
 	color: #424242;
 	transition: right 0.5s ease;
+	z-index: 9;
 }
 .header-wrapper .side-navi.show {
 	right: 0;
@@ -632,7 +633,7 @@ cursor: pointer;
 /* 	border: 10px solid red; */
 	z-index: 9;
 	animation-name:none;
-	animation-duration:4s;
+	animation-duration:2s;
 	animation-iteration-count:initial;
 	animation-fill-mode: forwards;
 }
@@ -803,7 +804,7 @@ cursor: pointer;
 /* 	border: 10px solid red; */
 	z-index: 9;
 	animation-name:none;
-	animation-duration:4s;
+	animation-duration:2s;
 	animation-iteration-count:initial;
 	animation-fill-mode: forwards;
 }
@@ -1130,6 +1131,7 @@ cursor: pointer;
 	transform: translateX(-50%);
 	display: flex;
 	flex-wrap: wrap;
+	border: 1px solid transparentblue;
 }
 
 .sub-wrapper5 .cont-wrap h3 {
@@ -1220,11 +1222,13 @@ cursor: pointer;
 }
 
 .sub-wrapper5 .subslide-wrap {
-margin-top: 60vh;
+/* margin-top: 60vh; */
 position: relative;
 left: 50%;
-transform: translateX(-26%);
+transform: translateX(-50%);
 width: 60%;
+height: 50%;
+border: 5px solid red;
 /* display: inline-block; */
 }
 .sub-wrapper5 .subslide-wrap  .btn-wrap {
@@ -1264,7 +1268,7 @@ width: 60%;
 	font-weight: 300;
 	line-height: 1.47em;
 	letter-spacing: 0;
-	color: #c9ab81;
+	color: #d6b990;
 }
 
 .sub-wrapper5 .subslide-wrap .slide-text span.name {
@@ -1481,7 +1485,7 @@ width: 60%;
 /* 	border: 10px solid red; */
 	z-index: 9;
 	animation-name:none;
-	animation-duration:4s;
+	animation-duration:2s;
 	animation-iteration-count:initial;
 	animation-fill-mode: forwards;
 }
@@ -1984,7 +1988,6 @@ overflow: hidden;
 	height:46vh;
 	background-color: #272727;
 	position: relative;
-
 }
 .footer-wrapper .cont-wrap {
 	width: 68%;
