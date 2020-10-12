@@ -14,6 +14,8 @@ html, body {
 	
 }
 
+.navi-close {position: absolute; transform: translate(-50%, -50%); cursor: none; top: -1000px; left: -1000px; z-index: 888; font-size: 2rem; padding: 100px;}
+
 .btn-dash {
 	background-color: transparent;
 	color: #fff;
@@ -413,14 +415,14 @@ cursor: pointer;
 	position: absolute;
 	top: 70px;
 	width: 100%;
-	height: 257px;
 	display: none;
+	z-index: 700;
 }
 .header-wrapper .mtop-wrap .navi-wrapper {
-	width: 768px;
+	/*width: 768px;
 	position: absolute;
 	left: 50%;
-	transform: translateX(-50%);
+	transform: translateX(-50%);*/
 }
 .header-wrapper .mtop-wrap .navi-wrapper .navi-wrap {
 	display: block;
@@ -474,7 +476,6 @@ cursor: pointer;
 .header-wrapper .mtop-wrap .mtop-bottom.show {
 	overflow: scroll;
 	width: 100%;
-	height: 307px;
 	display: block;
 }
 .header-wrapper .mtop-wrap .mtop-bottom.show2 {
@@ -494,7 +495,7 @@ cursor: pointer;
 	padding: 110px 50px 36px;
 	color: #424242;
 	transition: right 0.5s ease;
-	z-index: 9;
+	z-index: 999;
 }
 .header-wrapper .side-navi.show {
 	right: 0;
@@ -1131,7 +1132,7 @@ cursor: pointer;
 	transform: translateX(-50%);
 	display: flex;
 	flex-wrap: wrap;
-	border: 1px solid transparentblue;
+	border: 1px solid blue;
 }
 
 .sub-wrapper5 .cont-wrap h3 {
@@ -1368,7 +1369,6 @@ border: 5px solid red;
 .sub-wrapper6  .subtitle-wrap .subtitle-rt input {
 	border: 0; 
 	border-bottom: 1px solid #ccc;
-	size: 60;
 	margin:30px 0;
 	outline: 0;
 }
@@ -2013,7 +2013,7 @@ overflow: hidden;
 	justify-content: space-between;
 	margin-left: -5.25em;
 }
-.footer-wrapper .cont-wrap .museum-info >div, ,.footer-wrapper .opening >div {
+.footer-wrapper .cont-wrap .museum-info >div, .footer-wrapper .opening >div {
 	margin-bottom: 1em;
 }
 .footer-wrapper .cont-wrap .opening {
