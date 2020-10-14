@@ -57,10 +57,10 @@ $(".mtop-wrap .navi-wrap").click(function(){
 });
 
 
-$(".mtop-bottom .navi-wrap").click(function() {
+/* $(".mtop-bottom .navi-wrap").click(function() {
 	$(this).find(".sub-wrap").toggleClass("show");
 	$(".mtop-wrap .mtop-bottom").toggleClass("show");
-});
+}); */
 
 
 
@@ -342,16 +342,7 @@ $(".mtop-bottom .navi-wrap").click(function() {
 
 
 /*********** 이미지 animation ***********/
-/* 
-$(function() {
-	$(window).scroll(function() {
-		var offsetTop = $("sub-wrapper1").offset();
-		if ($(window).scrollTop() > offsetTop.top) {
-			$('img-wrapper >.img-wrap').css("animation-name","scroll");
-	});
-});
 
- */
 $(function(){
 	 var $offset = 300;
 	 var $offsetTop = $(".sub-wrapper1").offset().top - 300;
@@ -378,7 +369,10 @@ $(function(){
 	
 	$(window).scroll(function() {
 		if($(window).scrollTop() > $offsetTop) {
-		 $(".sub-wrapper4").find('.img-wrap').css("animation-name","scroll2");
+		 $(".sub-wrapper4").find('.img-text').css("width","26%");
+		 $(".sub-wrapper4").find('.img-wrap').css("display","block");
+		 var out = $(".sub-wrapper4").outerwidth();
+		 console.log(out);
 		}
 	});
 });
