@@ -57,14 +57,6 @@ $(".mtop-wrap .navi-wrap").click(function(){
 });
 
 
-/* $(".mtop-bottom .navi-wrap").click(function() {
-	$(this).find(".sub-wrap").toggleClass("show");
-	$(".mtop-wrap .mtop-bottom").toggleClass("show");
-}); */
-
-
-
-
 /********************* main-slide ***********************/
 
 (function(){
@@ -170,8 +162,10 @@ $(".mtop-wrap .navi-wrap").click(function(){
 	function init() {
 		for(var i=0; i<datas.length; i++) {
 			html  = '<div class="slide">';
-			html += '<div class="img1">';
+/* 			html += '<div class="img-wrapper">';
+			html += '<div class="img-wrap"></div>'; */
 			html += '<img src="'+datas[i].src+'" class="w-100">';
+/* 			html += '</div>'; */
 			html += '<div class="text-wrap">';
 			html += '<div class="slide-subt">'+datas[i].date+'</div>';
 			html += '<div class="slide-maint">'+datas[i].title+'</div>';
@@ -182,12 +176,11 @@ $(".mtop-wrap .navi-wrap").click(function(){
 			html += '</div>';
 			html += '</div>';
 			$slides.push($(html));
-			html = '<span class="pager">·</span>';
-			$pagerWrap.append(html);
-			//console.log($pagerWrap);
+/* 			html = '<span class="pager">·</span>';
+			$pagerWrap.append(html); */
 		}
-		$pager = $pagerWrap.find(".pager");
-		$pager.click(onPagerClick).eq(idx).addClass("active");
+/* 		$pager = $pagerWrap.find(".pager");
+		$pager.click(onPagerClick).eq(idx).addClass("active"); */
 		slideInit();
 	}
 
@@ -195,7 +188,6 @@ $(".mtop-wrap .navi-wrap").click(function(){
 		$btnPrev.off("click").click(onPrev);
 		$btnNext.off("click").click(onNext);
 		$slideWrap.empty();
-		//console.log($slideWrap);
 		$slideWrap.css("left", "-25%");
 		$($slides[idx].clone()).appendTo($slideWrap);
 		if(idx == 0) $($slides[lastIdx].clone()).prependTo($slideWrap);
@@ -236,6 +228,7 @@ $(".mtop-wrap .navi-wrap").click(function(){
 
 })();
  
+
 
 /*********** .sub-slide3 ***********/
 
@@ -371,8 +364,6 @@ $(function(){
 		if($(window).scrollTop() > $offsetTop) {
 		 $(".sub-wrapper4").find('.img-text').css("width","26%");
 		 $(".sub-wrapper4").find('.img-wrap').css("display","block");
-		 var out = $(".sub-wrapper4").outerwidth();
-		 console.log(out);
 		}
 	});
 });
