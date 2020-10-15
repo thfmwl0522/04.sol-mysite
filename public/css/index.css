@@ -1083,7 +1083,7 @@ margin:2.3rem 11.875rem 3rem 3.3rem;
 	justify-content: center;
 	align-items: center;
 	overflow: hidden;
-	border: 5px solid palevioletred;
+
 }
 
 .sub-wrapper5 .title-wrap {
@@ -1095,7 +1095,6 @@ margin:2.3rem 11.875rem 3rem 3.3rem;
 	letter-spacing: -0.02em;
 	align-items: center;
 	padding: 9rem 0 0 0;
-	border: 5px solid palevioletred;
 }
 
 .sub-wrapper5 .sub-title {
@@ -1147,27 +1146,80 @@ margin:2.3rem 11.875rem 3rem 3.3rem;
 }
 
 .sub-wrapper5 .cont-wrap {
-/* 	width: 68%; */
 	position: relative;
 	display: flex;
 	flex-wrap: wrap;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	margin: 6rem 0;
-	border: 1px solid red;
+	overflow: hidden;
 }
 
 .sub-wrapper5 .cont-wrap h3 {
 	font-family: eb garamond;
 	font-size: 22px;
 	line-height: 1.313em;
-	color: #525252;
+	font-weight: 400;
 	letter-spacing: .1em;
+	color: #525252;
+}
+.sub-wrapper5 .line-wrap {
+	position: relative;
+	position: absolute;
+	width: 10px;
+	height: 100%;
+	left: 50%;
+	z-index:99;
+}
+.sub-wrapper5 .line-wrap .main-line {
+	position: absolute;
+	width: 1px;
+	height: 100%;
+	background-color: rgb(214, 214, 214);
+}
+/* .sub-wrapper5 .line-wrap .main-lines {
+	position: absolute;
+	width: 1px;
+	height: 100%;
+	background-color: #4E4E4E;
+} */
+.sub-wrapper5 .line-wrap .main-line::after {
+	position: absolute;
+	width: 1px;
+	height: 0;
+	display: block;
+	content: "";
+	transform: translateX(-50%);
+	z-index: 9;
+	background-color: #4E4E4E;
+}
+.sub-wrapper5 .line-wrap .main-line::after .color {
+	height: 100%;
+}
+.sub-wrapper5 .line-wrap .point {
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	top: 4.5%;
+	transform: translateX(-50%);
+	background-color: #4E4E4E;
+	border-radius: 50%;
+}
+.sub-wrapper5 .line-wrap .sub-line {
+	position: absolute;
+	width: 8vw;
+	top: 4.7%;
+	height: 1px;
+	background-color: #4E4E4E;
+}
+.sub-wrapper5 .line-wrap .sub2 {
+	right: 10px;
 }
 .sub-wrapper5 .cont-wrap .img-wrapper {
 	position: relative;
 	width: 561px;
-margin-right: 12rem;
+	margin-right: 8rem;
 }
 .sub-wrapper5 .cont-wrap .img-wrapper .cntimg-wrap {
 	position: absolute;
@@ -1184,13 +1236,16 @@ margin-right: 12rem;
 }
 
 .sub-wrapper5 .cont-1910 {
+/* 	position: relative; */
 	display: flex;
 	justify-content: space-between;
-	border: 3px solid springgreen;
+	margin-bottom: ;
 }
 .sub-wrapper5 .cont-1910 .subtitle-wrap {
-	margin-right: 8%;
 	margin-top: 7%;
+	width: 375px;
+	display: block;
+	margin: 6.3rem 6.5rem 0 8rem;
 }
 
 .sub-wrapper5 img {
@@ -1235,16 +1290,22 @@ margin-right: 12rem;
 }
 
 .sub-wrapper5 .cont-1982 {
+	margin-top: 6rem;
 	display: flex;
 	justify-content: space-between;
-	margin-top: 140px;
-	border: 3px solid springgreen;
 }
-
+.sub-wrapper5 .cont-1982 .img-wrapper {
+	margin: 0 0 0 8rem;
+}
 .sub-wrapper5 .cont-1982 .subtitle-wrap {
 	margin-left: 8%;
 	margin-top: 7%;
 	z-index: 9;
+	margin-top: 7%;
+	width: 375px;
+	display: block;
+	margin: 6.3rem 7.5rem 0 7rem;
+
 }
 
 .sub-wrapper5 .cont-1982 h3 {
@@ -1252,15 +1313,19 @@ margin-right: 12rem;
 }
 
 .sub-wrapper5 .cont-2002 {
+	margin-top: 6rem;
 	display: flex;
 	justify-content: space-between;
-	margin-top: 140px;
 }
 
 .sub-wrapper5 .cont-2002 .subtitle-wrap {
-	margin-right: 8%;
+	margin-left: 8%;
 	margin-top: 7%;
 	z-index: 9;
+	margin-top: 7%;
+	width: 375px;
+	display: block;
+	margin: 6.3rem 6.5rem 0 8rem;
 }
 
 .sub-wrapper5 .subslide-wrap {
@@ -1268,7 +1333,6 @@ position: relative;
 width: 60%;
 overflow: hidden;
 z-index: 9;
-/* border: 3px solid palevioletred; */
 display: flex;
 justify-content: center;
 align-items: center;
@@ -1340,26 +1404,27 @@ margin-bottom: 5rem;
 
 .sub-wrapper6 {
 	width: 100%;
-	height: 90vh;
+/* 	height: 90vh; */
 	position: relative;
 	border: 1px solid red;
 }
 .sub-wrapper6 .background-img{
 	width: 100%;
-	height: 100%;
+	height: 90vh;
 	background-repeat: no-repeat;
 	background-size: cover;
 }
 .sub-wrapper6  .subtitle-wrap {
 	width: 70%;
-	height: 60%;
+/* 	height: 60%; */
+position: absolute;
 	background-color: #fff;
-	position: absolute;
+		border: 1px solid red;
 	top: 22%;
-		left: 50%;
-		transform: translateX(-50%);
-		display: flex;
-		justify-content: space-between;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	justify-content: space-between;
 }
 .sub-wrapper6  .subtitle-wrap .subtitle-lt{
 	position: absolute;

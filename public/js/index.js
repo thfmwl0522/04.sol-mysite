@@ -399,6 +399,26 @@ $(function(){
 });
 
 
+/* $(function(){
+	var $offsetTop1 = $(".cont-1910").offset().top - 500;
+	var $offsetTop2 = $(".cont-1982").offset().top - 500;
+	var $offsetTop3 = $(".cont-2002").offset().top - 500;
+	console.log($offsetTop2);
+	$(window).scroll(function() {
+		if($(window).scrollTop() > $offsetTop1) {
+		 $(".cont-1910").find('.sub1').css("height", "100%");
+		}
+		 if($(window).scrollTop() > $offsetTop2) {
+				$(".cont-1982").find('.cnt2').css("animation-name","scroll");
+			}
+			if($(window).scrollTop() > $offsetTop3) {
+					$(".cont-2002").find('.cnt3').css("animation-name","scroll");
+				}
+	});
+}); */
+
+
+
 
 
 (function(){
