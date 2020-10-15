@@ -378,28 +378,43 @@ $(function(){
 	});
 });
 
+$(function(){
+	var $offsetTop1 = $(".cont-1910").offset().top - 500;
+	var $offsetTop2 = $(".cont-1982").offset().top - 500;
+	var $offsetTop3 = $(".cont-2002").offset().top - 500;
+	console.log($offsetTop2);
+	$(window).scroll(function() {
+		if($(window).scrollTop() > $offsetTop1) {
+		 $(".cont-1910").find('.cnt1').css("animation-name","scroll");
+		}
+		 if($(window).scrollTop() > $offsetTop2) {
+				$(".cont-1982").find('.cnt2').css("animation-name","scroll");
+			}
+			if($(window).scrollTop() > $offsetTop3) {
+					$(".cont-2002").find('.cnt3').css("animation-name","scroll");
+				}
+	});
+});
 
 
 
 
-
-/* (function(){
+(function(){
 	var slides = [
 		{ id: 0, article: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor<br>incididunt ut labore et dolore magna aliqua ut enimad<br>minim veniam quis nostrud exerci tation ullamco', name: 'Isabel Tillman', visitor: 'Visitor' },
-		{ id: 1, article: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor<br>incididunt ut labore et dolore magna aliqua ut enimad<br>minim veniam quis nostrud exerci tation ullamco', name: 'Isabel Tillman', visitor: 'Visitor' },
-		{ id: 2, article: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor<br>incididunt ut labore et dolore magna aliqua ut enimad<br>minim veniam quis nostrud exerci tation ullamco', name: 'Isabel Tillman', visitor: 'Visitor' },
-
+		{ id: 1, article: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor<br>incididunt ut labore et dolore magna aliqua ut enimad<br>minim veniam quis nostrud exerci tation ullamco', name: 'Isabel Tomas', visitor: 'Visitor' },
+		{ id: 2, article: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor<br>incididunt ut labore et dolore magna aliqua ut enimad<br>minim veniam quis nostrud exerci tation ullamco', name: 'Rihanna', visitor: 'Visitor' }
 	];
 
-	var $slideWrap = $(".sub-wrapper5 .subslide-wrap");
+	var $slideWrap = $(".sub-wrapper5 .slide-wrap");
 	var $btnPrev = $(".sub-wrapper5 .btn-prev");
 	var $btnNext = $(".sub-wrapper5 .btn-next");
 	var $pagerWrap = $(".sub-wrapper5 .pager-wrap");
-	var $pager;				// 생성된 $(".wrapper6 .pager")
-	var $slides = [];	// $(".slide")들 모두를 담아놓는 배열(필요할때 복사해서 가져다 쓴다)
-	var idx = 0;											// 현재 화면에 보이는 slide의 index
-	var lastIdx = slides.length - 1;	// $(".slide")들 중에 마지막 index
-	var interval;											// setInterval을 담아놓는 변수
+	var $pager;	
+	var $slides = [];
+	var idx = 0;
+	var lastIdx = slides.length - 1;
+	var interval;
 
 	function init() {
 		var html, i;
@@ -416,44 +431,57 @@ $(function(){
 		$pager = $pagerWrap.find(".pager");
 		$pager.click(onPagerClick).eq(idx).addClass("active");
 		slideInit();
-		interval = setInterval(onNext, 3000);
+/* 		interval = setInterval(onNext, 3000); */
 	}
 
 	function slideInit() {
+		$slideWrap.css("left", 0);
+		//가운데(나)
 		$slideWrap.html($slides[idx].clone());
+		//좌측(prev)
+		if(idx == 0) $slideWrap.prepend($slides[lastIdx].clone());
+		else $slideWrap.prepend($slides[idx - 1].clone());
+		//우측(next)
+		if(idx == lastIdx) $slideWrap.append($slides[0].clone());
+		else $slideWrap.append($slides[idx + 1].clone());
+		$slide = $slideWrap.find(".slide");
 	}
 
 	$btnPrev.click(onPrev);
 	$btnNext.click(onNext);
-	$slideStage.mouseover(onHover);
-	$slideStage.mouseleave(onLeave);
-
-	function onHover() {
-		clearInterval(interval);
-	}
-
-	function onLeave() {
-		interval = setInterval(onNext, 3000);
-	}
 
 	function onPrev() {
+		target = '100%';
 		idx = (idx == 0) ? lastIdx : idx - 1;
 		ani();
 	}
 
 	function onNext() {
+		target = '-100%';
 		idx = (idx == lastIdx) ? 0 : idx + 1;
 		ani();
 	}
 
 	function onPagerClick() {
+		var oldIdx = idx;
 		idx = $(this).index();
-		ani();
+		if(oldIdx < idx) { //next
+			$slide.eq(2).remove();
+			$slideWrap.append($slides[idx].clone());
+			target = '-100%';
+			ani();
+		}
+		if(oldIdx > idx) { //prev
+			$slide.eq(0).remove();
+			$slideWrap.prepend($slides[idx].clone());
+			target = '100%';
+			ani();
+		}
 	}
 
 	function ani() {
 		$pager.removeClass("active").eq(idx).addClass("active");
-		$($slides[idx].clone()).appendTo($slideWrap).stop().animate({"opacity": 1}, 500, slideInit);
+		$slideWrap.stop().animate({"left": target}, 500, slideInit);
 	}
 	init();
-})(); */
+})();
