@@ -438,12 +438,9 @@ $(function(){
 
 	function slideInit() {
 		$slideWrap.css("left", 0);
-		//가운데(나)
 		$slideWrap.html($slides[idx].clone());
-		//좌측(prev)
 		if(idx == 0) $slideWrap.prepend($slides[lastIdx].clone());
 		else $slideWrap.prepend($slides[idx - 1].clone());
-		//우측(next)
 		if(idx == lastIdx) $slideWrap.append($slides[0].clone());
 		else $slideWrap.append($slides[idx + 1].clone());
 		$slide = $slideWrap.find(".slide");
