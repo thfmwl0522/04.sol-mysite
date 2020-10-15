@@ -1042,8 +1042,15 @@ justify-content:center;
 	transition: all 1s;
 	transform-origin: right;
 }
+.sub-wrapper4 .img-change {
+	width:26%;
+	display: block;
+}
+.sub-wrapper4 .img-wrap .text-change {
+	display:block;
+}
 .sub-wrapper4 .img-wrap {
-display:none;
+/* display:none; */
 transition: all 1s;
 width: 194px;
 margin:2.3rem 11.875rem 3rem 3.3rem;
@@ -1055,7 +1062,6 @@ margin:2.3rem 11.875rem 3rem 3.3rem;
 	font-size: 20px;
 	line-height: 1.35em;
 	letter-spacing: .16em;
-/* 	width: 100%; */
 	color: #525252;
 }
 
@@ -1359,7 +1365,6 @@ margin-bottom: 5rem;
 .sub-wrapper6  .subtitle-wrap .subtitle-lt{
 	position: absolute;
 	width: 50%;
-/* 	height: 100vh; */
 	top:14vh;
 	left: 12%;
 	display: flex;

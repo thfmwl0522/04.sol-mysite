@@ -362,8 +362,10 @@ $(function(){
 	
 	$(window).scroll(function() {
 		if($(window).scrollTop() > $offsetTop) {
-		 $(".sub-wrapper4").find('.img-text').css("width","26%");
-		 $(".sub-wrapper4").find('.img-wrap').css("display","block");
+		 $(".sub-wrapper4").find('.img-text').addClass('img-change');
+		 $(".sub-wrapper4").find('.img-wrap').addClass('text-change');
+/* 		 $(".sub-wrapper4").find('.img-wrap').addClass("text-change"); */
+/* 		 $(".sub-wrapper4").find('.img-wrap').addClass("display","block"); */
 		}
 	});
 });
