@@ -424,15 +424,16 @@ $(function(){
 (function(){
 	var slides = [
 		{ id: 0, article: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor<br>incididunt ut labore et dolore magna aliqua ut enimad<br>minim veniam quis nostrud exerci tation ullamco', name: 'Isabel Tillman', visitor: 'Visitor' },
-		{ id: 1, article: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor<br>incididunt ut labore et dolore magna aliqua ut enimad<br>minim veniam quis nostrud exerci tation ullamco', name: 'Isabel Tomas', visitor: 'Visitor' },
-		{ id: 2, article: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor<br>incididunt ut labore et dolore magna aliqua ut enimad<br>minim veniam quis nostrud exerci tation ullamco', name: 'Rihanna', visitor: 'Visitor' }
+		{ id: 1, article: 'Ut enim ad minim veniam, quis mot nostrud desto exercitation est ullamco<br>laboris nisi ut se aliquip exea commodos consequat.<br>aute irure et dolor in reprehender itinse voluptate velit', name: 'Isabel Tomas', visitor: 'Visitor' },
+		{ id: 2, article: 'Lorem ipsum dolor sit amet, consectetur adipisic eli sed do eiusmod tempor<br>incididunt ut labore et dolore si magna aliqua.<br>Ut enim adese minim veniam, quis ester nostrud exercitation', name: 'Rihanna', visitor: 'Visitor' }
 	];
 
+	var $slideStage = $(".sub-wrapper5 .subslide-wrap");
 	var $slideWrap = $(".sub-wrapper5 .slide-wrap");
 	var $btnPrev = $(".sub-wrapper5 .btn-prev");
 	var $btnNext = $(".sub-wrapper5 .btn-next");
 	var $pagerWrap = $(".sub-wrapper5 .pager-wrap");
-	var $pager;	
+	var $pager;
 	var $slides = [];
 	var idx = 0;
 	var lastIdx = slides.length - 1;
@@ -441,11 +442,11 @@ $(function(){
 	function init() {
 		var html, i;
 		for(i in slides) {
-			html = '<div class="slide-text">';
-			html += '<div class="slide-article">'+slides[i].article+ '</div>';
-			html += '<div class="slide-name">'+slides[i].name+ '</div>';
-			html += '<div class="slide-visitor">'+slides[i].visitor+ '</div>';
-			html += '</div>';
+			html = '<div class="slide">';
+			html += '<div class="slide-text">'+slides[i].article+'</div>';
+			html += '<div class="slide-name">'+slides[i].name+'</div>';
+			html += '<div class="slide-visitor">'+slides[i].visitor+'</div>';
+			html += '</div>'
 			$slides[i] = $(html);
 			html = '<span class="pager">●</span>';
 			$pagerWrap.append(html);
@@ -457,50 +458,37 @@ $(function(){
 	}
 
 	function slideInit() {
-		$slideWrap.css("left", 0);
 		$slideWrap.html($slides[idx].clone());
-		if(idx == 0) $slideWrap.prepend($slides[lastIdx].clone());
-		else $slideWrap.prepend($slides[idx - 1].clone());
-		if(idx == lastIdx) $slideWrap.append($slides[0].clone());
-		else $slideWrap.append($slides[idx + 1].clone());
-		$slide = $slideWrap.find(".slide");
 	}
 
 	$btnPrev.click(onPrev);
 	$btnNext.click(onNext);
 
 	function onPrev() {
-		target = '100%';
 		idx = (idx == 0) ? lastIdx : idx - 1;
 		ani();
 	}
 
 	function onNext() {
-		target = '-100%';
 		idx = (idx == lastIdx) ? 0 : idx + 1;
 		ani();
 	}
 
 	function onPagerClick() {
-		var oldIdx = idx;
 		idx = $(this).index();
-		if(oldIdx < idx) { //next
-			$slide.eq(2).remove();
-			$slideWrap.append($slides[idx].clone());
-			target = '-100%';
-			ani();
-		}
-		if(oldIdx > idx) { //prev
-			$slide.eq(0).remove();
-			$slideWrap.prepend($slides[idx].clone());
-			target = '100%';
-			ani();
-		}
+		ani();
 	}
 
 	function ani() {
 		$pager.removeClass("active").eq(idx).addClass("active");
-		$slideWrap.stop().animate({"left": target}, 500, slideInit);
+		$($slides[idx].clone()).appendTo($slideWrap).stop().animate({"opacity": 1}, 500, slideInit);
 	}
 	init();
 })();
+
+
+function onTop() {
+	$("html, body").stop().animate({"scrollTop": 0}, 500);
+}
+
+$("#btnTop").click(onTop);
