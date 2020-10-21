@@ -147,25 +147,25 @@ $(".mtop-wrap .navi-wrap").click(function(){
 		{id: 8, src: '../img/show-slider-img-12.jpg', date: 'Mar 8 - Mar 15 2022', title: 'LA TRIENALE DI VENICE',cont: 'View more'},
 		{id: 9, src: '../img/show-slider-img-13.jpg', date: 'Mar 8 - Mar 15 2022', title: 'LA BERCEUSE TALKS',cont: 'View more'}
 	];
+
 	var $wrapper = $(".slide-wrapper2");
 	var $slideWrap = $(".slide-wrap", $wrapper); 
 	var $btnPrev = $(".btn-prev", $wrapper); 
 	var $btnNext = $(".btn-next", $wrapper);
-	var $pagerWrap = $(".pager-wrap", $wrapper);
-	var $slides = [];	
+	var $slides = [];		// 모든 .slide
 	var idx = 0;
 	var lastIdx = datas.length - 1;
+	var winWid;					// 현재창의 크기
 	var target;
 	var interval;
 
+	/*********** 사용자 함수 ***********/
 	init();
 	function init() {
-		for(var i=0; i<datas.length; i++) {
+		var i, html;
+		for(i in datas) {
 			html  = '<div class="slide">';
-/* 			html += '<div class="img-wrapper">';
-			html += '<div class="img-wrap"></div>'; */
 			html += '<img src="'+datas[i].src+'" class="w-100">';
-/* 			html += '</div>'; */
 			html += '<div class="text-wrap">';
 			html += '<div class="slide-subt">'+datas[i].date+'</div>';
 			html += '<div class="slide-maint">'+datas[i].title+'</div>';
@@ -176,20 +176,15 @@ $(".mtop-wrap .navi-wrap").click(function(){
 			html += '</div>';
 			html += '</div>';
 			$slides.push($(html));
-/* 			html = '<span class="pager">·</span>';
-			$pagerWrap.append(html); */
 		}
-/* 		$pager = $pagerWrap.find(".pager");
-		$pager.click(onPagerClick).eq(idx).addClass("active"); */
 		slideInit();
+		interval = setInterval(onNext, 3000);
 	}
 
 	function slideInit() {
 		$btnPrev.off("click").click(onPrev);
 		$btnNext.off("click").click(onNext);
-		$slideWrap.empty();
-		$slideWrap.css("left", "-25%");
-		$($slides[idx].clone()).appendTo($slideWrap);
+		$($slides[idx].clone()).appendTo($slideWrap.empty().attr("style", ""));
 		if(idx == 0) $($slides[lastIdx].clone()).prependTo($slideWrap);
 		else $($slides[idx - 1].clone()).prependTo($slideWrap);
 		for(var i=1; i<=4; i++) {
@@ -198,15 +193,20 @@ $(".mtop-wrap .navi-wrap").click(function(){
 		}
 	}
 
+	function ani() {
+		$slideWrap.stop().animate({"left": target+"%"}, 500, slideInit);
+	}
 
 	function onPrev() {
+		// $(this).hide();
 		$(this).off("click");
-		idx = (idx == 0) ? lastIdx : idx - 1;
-		target = 0
+		idx = idx == 0 ? lastIdx : idx - 1;
+		target = 0;
 		ani();
 	}
 	
 	function onNext() {
+		// $(this).hide();
 		$(this).off("click");
 		idx = idx == lastIdx ? 0 : idx + 1;
 		winWid = $(window).outerWidth();
@@ -217,17 +217,13 @@ $(".mtop-wrap .navi-wrap").click(function(){
 		ani();
 	}
 
-	function onPagerClick() {
-		idx = $(this).index();
-		ani();
-	}
-
-	function ani() {
-		$slideWrap.stop().animate({"left": target+"%"}, 700, slideInit);
-	}
+	$wrapper.hover(function(){
+		clearInterval(interval);
+	}, function(){
+		interval = setInterval(onNext, 3000);
+	});
 
 })();
- 
 
 
 /*********** .sub-slide3 ***********/
@@ -380,7 +376,7 @@ $(function(){
 	});
 });
 
-/* $(function(){
+$(function(){
 	var $offsetTop1 = $(".cont-1910").offset().top - 500;
 	var $offsetTop2 = $(".cont-1982").offset().top - 500;
 	var $offsetTop3 = $(".cont-2002").offset().top - 500;
@@ -399,7 +395,7 @@ $(function(){
 					$(".cont-wrap").find('.main-sub3').addClass('line-change3');
 				}
 	});
-}); */
+});
 
 
 /* $(function(){
