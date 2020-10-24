@@ -87,10 +87,10 @@ $(".mtop-wrap .navi-wrap").click(function(){
 		$(".header-wrapper .slide").remove();
 		$(".header-wrapper .title-lt .title-wrap").remove();
 		var slide = $($($slides[idx]).clone()).appendTo($wrapper);
-		slide.css("background-position", "0 50%");
+/* 		slide.css("background-position", "0 20%");
 		setTimeout(function(){
-			slide.css("background-position", "-10% 40%");
-		}, 0);
+			slide.css("background-position", "2% 40%");
+		}, 0); */
 		$($($titles[idx]).clone()).prependTo($titleLt);
 		$(".header-wrapper .title-lt .title-wrap").css("opacity");
 		$(".header-wrapper .title-lt .title-wrap").css("transform");
@@ -281,10 +281,7 @@ $(".mtop-wrap .navi-wrap").click(function(){
 	function slideInit() {
 		$btnPrev.off("click").click(onPrev);
 		$btnNext.off("click").click(onNext);
-		$slideWrap.empty();
-		//console.log($slideWrap);
-		$slideWrap.css("left", "-25%");
-		$($slides[idx].clone()).appendTo($slideWrap);
+		$($slides[idx].clone()).appendTo($slideWrap.empty().attr("style", ""));
 		if(idx == 0) $($slides[lastIdx].clone()).prependTo($slideWrap);
 		else $($slides[idx - 1].clone()).prependTo($slideWrap);
 		for(var i=1; i<=4; i++) {
@@ -293,15 +290,20 @@ $(".mtop-wrap .navi-wrap").click(function(){
 		}
 	}
 
+	function ani() {
+		$slideWrap.stop().animate({"left": target+"%"}, 500, slideInit);
+	}
 
 	function onPrev() {
+		// $(this).hide();
 		$(this).off("click");
-		idx = (idx == 0) ? lastIdx : idx - 1;
-		target = 0
+		idx = idx == 0 ? lastIdx : idx - 1;
+		target = 0;
 		ani();
 	}
 	
 	function onNext() {
+		// $(this).hide();
 		$(this).off("click");
 		idx = idx == lastIdx ? 0 : idx + 1;
 		winWid = $(window).outerWidth();
@@ -312,19 +314,11 @@ $(".mtop-wrap .navi-wrap").click(function(){
 		ani();
 	}
 
-	function onPagerClick() {
-		idx = $(this).index();
-		ani();
-	}
-
-	function onInterval() {
-		idx = (idx == lastIdx) ? 0 : idx + 1;
-		ani();
-	}
-
-	function ani() {
-		$slideWrap.stop().animate({"left": target+"%"}, 700, slideInit);
-	}
+	$wrapper.hover(function(){
+		clearInterval(interval);
+	}, function(){
+		interval = setInterval(onNext, 3000);
+	});
 
 })();
 
@@ -334,11 +328,11 @@ $(".mtop-wrap .navi-wrap").click(function(){
 
 $(function(){
 	 var $offset = 300;
-	 var $offsetTop = $(".sub-wrapper1").offset().top - 300;
+	 var $offsetTop = $(".history-wrapper").offset().top - 300;
 	 
 	 $(window).scroll(function() {
 		 if($(window).scrollTop() > $offsetTop) {
-			$(".sub-wrapper1").find('.img-wrap').css("animation-name","scroll");
+			$(".history-wrapper").find('.img-wrap').css("animation-name","scroll");
 		 }
 	 });
 });
@@ -354,12 +348,12 @@ $(function(){
 });
 
 $(function(){
-	var $offsetTop = $(".sub-wrapper4").offset().top - 500;
+	var $offsetTop = $(".artist-wrapper").offset().top - 500;
 	
 	$(window).scroll(function() {
 		if($(window).scrollTop() > $offsetTop) {
-		 $(".sub-wrapper4").find('.img-text').addClass('img-change');
-		 $(".sub-wrapper4").find('.img-wrap').addClass('text-change');
+		 $(".artist-wrapper").find('.img-text').addClass('img-change');
+		 $(".artist-wrapper").find('.img-wrap').addClass('text-change');
 /* 		 $(".sub-wrapper4").find('.img-wrap').addClass("text-change"); */
 /* 		 $(".sub-wrapper4").find('.img-wrap').addClass("display","block"); */
 		}
@@ -367,11 +361,11 @@ $(function(){
 });
 
 $(function(){
-	var $offsetTop = $(".sub-wrapper7").offset().top - 500;
+	var $offsetTop = $(".visits-wrapper ").offset().top - 500;
 	
 	$(window).scroll(function() {
 		if($(window).scrollTop() > $offsetTop) {
-		 $(".sub-wrapper7").find('.img-wrap').css("animation-name","scroll2");
+		 $(".visits-wrapper ").find('.img-wrap').css("animation-name","scroll2");
 		}
 	});
 });
@@ -422,16 +416,16 @@ $(function(){
 
 (function(){
 	var slides = [
-		{ id: 0, article: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor<br>incididunt ut labore et dolore magna aliqua ut enimad<br>minim veniam quis nostrud exerci tation ullamco', name: 'Isabel Tillman', visitor: 'Visitor' },
-		{ id: 1, article: 'Ut enim ad minim veniam, quis mot nostrud desto exercitation est ullamco<br>laboris nisi ut se aliquip exea commodos consequat.<br>aute irure et dolor in reprehender itinse voluptate velit', name: 'Isabel Tomas', visitor: 'Visitor' },
-		{ id: 2, article: 'Lorem ipsum dolor sit amet, consectetur adipisic eli sed do eiusmod tempor<br>incididunt ut labore et dolore si magna aliqua.<br>Ut enim adese minim veniam, quis ester nostrud exercitation', name: 'Rihanna', visitor: 'Visitor' }
+		{ id: 0, article: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enimad minim veniam quis nostrud exerci tation ullamco', name: 'Isabel Tillman', visitor: 'Visitor' },
+		{ id: 1, article: 'Ut enim ad minim veniam, quis mot nostrud desto exercitation est ullamco laboris nisi ut se aliquip exea commodos consequat. aute irure et dolor in reprehender itinse voluptate velit', name: 'Isabel Tomas', visitor: 'Visitor' },
+		{ id: 2, article: 'Lorem ipsum dolor sit amet, consectetur adipisic eli sed do eiusmod tempor incididunt ut labore et dolore si magna aliqua. Ut enim adese minim veniam, quis ester nostrud exercitation', name: 'Rihanna', visitor: 'Visitor' }
 	];
 
-	var $slideStage = $(".sub-wrapper5 .subslide-wrap");
-	var $slideWrap = $(".sub-wrapper5 .slide-wrap");
-	var $btnPrev = $(".sub-wrapper5 .btn-prev");
-	var $btnNext = $(".sub-wrapper5 .btn-next");
-	var $pagerWrap = $(".sub-wrapper5 .pager-wrap");
+	var $slideStage = $(".raeding-wrapper .subslide-wrap");
+	var $slideWrap = $(".raeding-wrapper .slide-wrap");
+	var $btnPrev = $(".raeding-wrapper .btn-prev");
+	var $btnNext = $(".raeding-wrapper .btn-next");
+	var $pagerWrap = $(".raeding-wrapper .pager-wrap");
 	var $pager;
 	var $slides = [];
 	var idx = 0;
