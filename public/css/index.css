@@ -1091,10 +1091,9 @@ html, body {
 
 .footer-wrapper{
 	width: 100%;
-	background-color: #272727;
-	position: fixed;
+	height: 50vh;
+	background-color: #000000;
 	position: relative;
-	z-index:10 ;
 	justify-content:center;
 	align-items: center;
 	display: flex;
@@ -1106,9 +1105,7 @@ html, body {
 .footer-wrapper .cont-wrap {
 	display: flex;
 	font-size: 17px;
-/* 	margin: 0 11.25rem; */
 	padding: 8rem 0; 
-/* 	border: 1px solid red; */
 }
 .footer-wrapper .cont-wrap img {
 	width: 52px;
@@ -1146,6 +1143,21 @@ html, body {
 .footer-wrapper .cont-wrap .follow > li {
 	margin-bottom: 1rem;
 }
+
+.footer-wrapper {background-color: #000; color: #aaa;}
+.footer-wrapper .sns-wrap {padding: 3em; font-size: 0.875em; text-align: center;}
+.footer-wrapper .sns-wrap i {padding: 1em; transition: all 0.3s;}
+.footer-wrapper .sns-wrap i:hover {color: #f8f8f8;}
+.footer-wrapper .menu-wrap {display: flex; flex-wrap: wrap;}
+.footer-wrapper .menu-wrap > .menus {flex-basis: 16%; flex-grow: 0; flex-shrink: 1;}
+.footer-wrapper .menu-wrap > .menus:last-child {flex-grow: 1;}
+.footer-wrapper .menu {font-size: 0.875em; padding: 0.5em 0; transition: all 0.3s; cursor: pointer;}
+.footer-wrapper .menus:not(:last-child) .menu:not(.title):hover {text-decoration: underline; color: #f8f8f8;}
+.footer-wrapper .menu.title {font-size: 1em; color: #f8f8f8;}
+.footer-wrapper .menu.title::after {display: block; content: ""; width: 30px; height:2px; background-color: #f8f8f8;}
+
+.footer-wrapper .copy-wrap {text-align: center; padding: 1.5em 0; margin-top: 3em; border-top: 1px solid #333;}
+
 
 .sct-wrapper {width: 90%; position: fixed; bottom: 20px; left: 95%; z-index: 9999; cursor: pointer;}
 .sct-wrapper .box {width: 45px; height: 45px; background-color: #333;  position: relative;}
